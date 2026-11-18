@@ -1,0 +1,600 @@
+{
+  "common": [
+    "guard",
+    "focus"
+  ],
+  "skills": {
+    "guard": {
+      "name": "Defensa",
+      "desc": "Reduce un 60% el próximo golpe. +10 chakra.",
+      "type": "guard"
+    },
+    "focus": {
+      "name": "Concentrar",
+      "desc": "Recupera 35 de chakra.",
+      "type": "focus"
+    },
+    "combo": {
+      "name": "Combo de puños",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 12,
+      "acc": 95
+    },
+    "rasengan": {
+      "name": "Rasengan",
+      "desc": "Esfera de chakra. 25% de aturdir.",
+      "type": "damage",
+      "power": 32,
+      "cost": 30,
+      "acc": 88,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.25
+      }
+    },
+    "rasenshuriken": {
+      "name": "Rasenshuriken",
+      "desc": "Golpe devastador, pero difícil de acertar.",
+      "type": "damage",
+      "power": 48,
+      "cost": 50,
+      "acc": 75
+    },
+    "sage": {
+      "name": "Modo Sabio",
+      "desc": "+30% de ataque durante 3 turnos.",
+      "type": "buff",
+      "cost": 25,
+      "effect": {
+        "kind": "buff",
+        "stat": "attack",
+        "amount": 0.3,
+        "turns": 4
+      }
+    },
+    "katana": {
+      "name": "Tajo de katana",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 12,
+      "acc": 95
+    },
+    "fireball": {
+      "name": "Bola de fuego",
+      "desc": "Quema al rival 3 turnos.",
+      "type": "damage",
+      "power": 24,
+      "cost": 20,
+      "acc": 92,
+      "effect": {
+        "kind": "burn",
+        "turns": 3,
+        "damage": 14
+      }
+    },
+    "chidori": {
+      "name": "Chidori",
+      "desc": "Rayo veloz. 30% de aturdir.",
+      "type": "damage",
+      "power": 34,
+      "cost": 32,
+      "acc": 85,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.3
+      }
+    },
+    "sharingan": {
+      "name": "Sharingan",
+      "desc": "+35% de defensa durante 3 turnos.",
+      "type": "buff",
+      "cost": 20,
+      "effect": {
+        "kind": "buff",
+        "stat": "defense",
+        "amount": 0.35,
+        "turns": 4
+      }
+    },
+    "kick": {
+      "name": "Patada rápida",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 13,
+      "acc": 95
+    },
+    "senpu": {
+      "name": "Viento de Hoja",
+      "desc": "Patada giratoria.",
+      "type": "damage",
+      "power": 26,
+      "cost": 18,
+      "acc": 90
+    },
+    "lotus": {
+      "name": "Loto Primario",
+      "desc": "Muy potente, pero te hiere (12).",
+      "type": "damage",
+      "power": 42,
+      "cost": 35,
+      "acc": 78,
+      "selfDamage": 12
+    },
+    "gate": {
+      "name": "Puerta de la Apertura",
+      "desc": "+40% de ataque 3 turnos, pierdes 15 de vida.",
+      "type": "buff",
+      "cost": 20,
+      "selfDamage": 15,
+      "effect": {
+        "kind": "buff",
+        "stat": "attack",
+        "amount": 0.4,
+        "turns": 4
+      }
+    },
+    "sandfist": {
+      "name": "Puño de arena",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 11,
+      "acc": 95
+    },
+    "sandcoffin": {
+      "name": "Ataúd de arena",
+      "desc": "Aprisiona al rival. 30% de aturdir.",
+      "type": "damage",
+      "power": 28,
+      "cost": 26,
+      "acc": 88,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.3
+      }
+    },
+    "sandfuneral": {
+      "name": "Funeral del desierto",
+      "desc": "Aplasta con una avalancha de arena.",
+      "type": "damage",
+      "power": 46,
+      "cost": 50,
+      "acc": 78
+    },
+    "sandarmor": {
+      "name": "Regeneración de arena",
+      "desc": "Recupera 44 de vida.",
+      "type": "heal",
+      "power": 44,
+      "cost": 35
+    },
+    "kunai": {
+      "name": "Golpe de kunai",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 12,
+      "acc": 95
+    },
+    "waterdragon": {
+      "name": "Dragón de agua",
+      "desc": "Ola gigante de agua.",
+      "type": "damage",
+      "power": 26,
+      "cost": 20,
+      "acc": 92
+    },
+    "raikiri": {
+      "name": "Raikiri",
+      "desc": "Estocada de rayo. 35% de aturdir.",
+      "type": "damage",
+      "power": 38,
+      "cost": 35,
+      "acc": 82,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.35
+      }
+    },
+    "copy": {
+      "name": "Técnica copiada",
+      "desc": "+25% de ataque durante 3 turnos.",
+      "type": "buff",
+      "cost": 20,
+      "effect": {
+        "kind": "buff",
+        "stat": "attack",
+        "amount": 0.25,
+        "turns": 4
+      }
+    },
+    "shuriken": {
+      "name": "Lluvia de shuriken",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 12,
+      "acc": 95
+    },
+    "amaterasu": {
+      "name": "Amaterasu",
+      "desc": "Llamas negras: queman 3 turnos.",
+      "type": "damage",
+      "power": 22,
+      "cost": 28,
+      "acc": 90,
+      "effect": {
+        "kind": "burn",
+        "turns": 3,
+        "damage": 16
+      }
+    },
+    "tsukuyomi": {
+      "name": "Tsukuyomi",
+      "desc": "Ilusión brutal. 50% de aturdir.",
+      "type": "damage",
+      "power": 38,
+      "cost": 40,
+      "acc": 80,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.5
+      }
+    },
+    "susanoo": {
+      "name": "Susanoo",
+      "desc": "+40% de defensa durante 3 turnos.",
+      "type": "buff",
+      "cost": 30,
+      "effect": {
+        "kind": "buff",
+        "stat": "defense",
+        "amount": 0.4,
+        "turns": 4
+      }
+    },
+    "toadpunch": {
+      "name": "Puñetazo de sapo",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 12,
+      "acc": 95
+    },
+    "toadoil": {
+      "name": "Aceite de sapo en llamas",
+      "desc": "Quema al rival 3 turnos.",
+      "type": "damage",
+      "power": 24,
+      "cost": 22,
+      "acc": 90,
+      "effect": {
+        "kind": "burn",
+        "turns": 3,
+        "damage": 12
+      }
+    },
+    "bigball": {
+      "name": "Rasengan gigante",
+      "desc": "Esfera enorme. 30% de aturdir.",
+      "type": "damage",
+      "power": 40,
+      "cost": 38,
+      "acc": 82,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.3
+      }
+    },
+    "needlehair": {
+      "name": "Armadura de pelo",
+      "desc": "+35% de defensa durante 3 turnos.",
+      "type": "buff",
+      "cost": 20,
+      "effect": {
+        "kind": "buff",
+        "stat": "defense",
+        "amount": 0.35,
+        "turns": 4
+      }
+    },
+    "punch": {
+      "name": "Puñetazo",
+      "desc": "Ataque básico.",
+      "type": "damage",
+      "power": 13,
+      "acc": 92
+    },
+    "quake": {
+      "name": "Pisotón sísmico",
+      "desc": "Sacude el suelo. 20% de aturdir.",
+      "type": "damage",
+      "power": 24,
+      "cost": 20,
+      "acc": 90,
+      "effect": {
+        "kind": "stun",
+        "chance": 0.2
+      }
+    },
+    "seismic": {
+      "name": "Golpe sísmico",
+      "desc": "Puñetazo demoledor, difícil de acertar.",
+      "type": "damage",
+      "power": 40,
+      "cost": 32,
+      "acc": 80
+    },
+    "mystic": {
+      "name": "Jutsu de curación",
+      "desc": "Recupera 40 de vida.",
+      "type": "heal",
+      "power": 40,
+      "cost": 32
+    }
+  },
+  "characters": [
+    {
+      "id": "naruto",
+      "name": "Naruto",
+      "rank": 2,
+      "symbol": "渦",
+      "colors": [
+        "#ff9a1a",
+        "#e8590c"
+      ],
+      "stats": {
+        "hp": 336,
+        "chakra": 100,
+        "attack": 12,
+        "defense": 10,
+        "speed": 10
+      },
+      "skills": [
+        "combo",
+        "rasengan",
+        "rasenshuriken",
+        "sage"
+      ],
+      "taunt": "¡Voy a ser el mejor shinobi, dattebayo! ¡Prepárate!",
+      "reply": "No pienso rendirme. ¡Aquí estoy!",
+      "defeat": "Tsk... ¡Esto no ha terminado, dattebayo!",
+      "image": "assets/characters/naruto.jpg"
+    },
+    {
+      "id": "sasuke",
+      "name": "Sasuke",
+      "rank": 5,
+      "symbol": "雷",
+      "colors": [
+        "#3b5bdb",
+        "#1a1f4d"
+      ],
+      "stats": {
+        "hp": 294,
+        "chakra": 100,
+        "attack": 13,
+        "defense": 8,
+        "speed": 12
+      },
+      "skills": [
+        "katana",
+        "fireball",
+        "chidori",
+        "sharingan"
+      ],
+      "taunt": "No eres rival para mí. Ríndete ahora.",
+      "reply": "Veremos quién se arrepiente.",
+      "defeat": "Imposible... ¿Cómo he perdido?",
+      "image": "assets/characters/sasuke.jpg"
+    },
+    {
+      "id": "lee",
+      "name": "Rock Lee",
+      "rank": 1,
+      "symbol": "葉",
+      "colors": [
+        "#2f9e44",
+        "#0b4d1d"
+      ],
+      "stats": {
+        "hp": 350,
+        "chakra": 90,
+        "attack": 12,
+        "defense": 10,
+        "speed": 13
+      },
+      "skills": [
+        "kick",
+        "senpu",
+        "lotus",
+        "gate"
+      ],
+      "taunt": "¡El trabajo duro supera al talento! ¡Pelea conmigo!",
+      "reply": "¡Con todas mis fuerzas!",
+      "defeat": "He perdido... ¡pero entrenaré el doble!",
+      "image": "assets/characters/lee.jpg"
+    },
+    {
+      "id": "gaara",
+      "name": "Gaara",
+      "rank": 3,
+      "symbol": "砂",
+      "colors": [
+        "#d9a441",
+        "#7a4b1c"
+      ],
+      "stats": {
+        "hp": 322,
+        "chakra": 100,
+        "attack": 10,
+        "defense": 11,
+        "speed": 7
+      },
+      "skills": [
+        "sandfist",
+        "sandcoffin",
+        "sandfuneral",
+        "sandarmor"
+      ],
+      "taunt": "Tu chakra huele a miedo. La arena ya te rodea.",
+      "reply": "No me asusta tu arena.",
+      "defeat": "Así que... esto es la derrota.",
+      "image": "assets/characters/gaara.jpg"
+    },
+    {
+      "id": "kakashi",
+      "name": "Kakashi",
+      "rank": 7,
+      "symbol": "写",
+      "colors": [
+        "#868e96",
+        "#343a40"
+      ],
+      "stats": {
+        "hp": 320,
+        "chakra": 100,
+        "attack": 12,
+        "defense": 10,
+        "speed": 11
+      },
+      "skills": [
+        "kunai",
+        "waterdragon",
+        "raikiri",
+        "copy"
+      ],
+      "taunt": "He copiado mil técnicas. Enséñame la tuya.",
+      "reply": "Entonces te mostraré una que no conoces.",
+      "defeat": "Vaya... has aprendido más rápido que yo.",
+      "image": "assets/characters/kakashi.jpg"
+    },
+    {
+      "id": "itachi",
+      "name": "Itachi",
+      "rank": 8,
+      "symbol": "暁",
+      "colors": [
+        "#c92a2a",
+        "#1a0b0b"
+      ],
+      "stats": {
+        "hp": 280,
+        "chakra": 120,
+        "attack": 13,
+        "defense": 9,
+        "speed": 12
+      },
+      "skills": [
+        "shuriken",
+        "amaterasu",
+        "tsukuyomi",
+        "susanoo"
+      ],
+      "taunt": "Cada combate es una ilusión de la que se despierta. Veamos la tuya.",
+      "reply": "No caeré en tus ilusiones.",
+      "defeat": "Ya veo... Mereces ese poder.",
+      "image": "assets/characters/itachi.jpg"
+    },
+    {
+      "id": "tsunade",
+      "name": "Tsunade",
+      "rank": 4,
+      "symbol": "癒",
+      "colors": [
+        "#74b816",
+        "#2b4a0a"
+      ],
+      "stats": {
+        "hp": 310,
+        "chakra": 90,
+        "attack": 13,
+        "defense": 9,
+        "speed": 6
+      },
+      "skills": [
+        "punch",
+        "quake",
+        "seismic",
+        "mystic"
+      ],
+      "taunt": "Cuidado, chaval: mi puño rompe montañas.",
+      "reply": "Pues yo no pienso apartarme.",
+      "defeat": "Hmpf... Has apostado bien.",
+      "image": "assets/characters/tsunade.jpg"
+    },
+    {
+      "id": "jiraiya",
+      "name": "Jiraiya",
+      "rank": 6,
+      "symbol": "蝦",
+      "colors": [
+        "#e03131",
+        "#5c1010"
+      ],
+      "stats": {
+        "hp": 300,
+        "chakra": 110,
+        "attack": 12,
+        "defense": 10,
+        "speed": 8
+      },
+      "skills": [
+        "toadpunch",
+        "toadoil",
+        "bigball",
+        "needlehair"
+      ],
+      "taunt": "¡Soy el gran ermitaño sapo! ¡Con calma, muchacho!",
+      "reply": "Ermitaño o no, no me detendrás.",
+      "defeat": "Jajaja... ¡Me has dejado sin palabras!",
+      "image": "assets/characters/jiraiya.jpg"
+    }
+  ],
+  "story": {
+    "hpScale": [
+      0.55,
+      0.65,
+      0.75,
+      0.85,
+      0.95
+    ],
+    "intro": [
+      {
+        "speaker": "Narrador",
+        "text": "El Torneo de las Aldeas ha comenzado. Cuatro shinobi, un solo campeón."
+      },
+      {
+        "speaker": "Narrador",
+        "text": "Para ganar deberás vencer a cinco rivales seguidos. Gestiona bien tu chakra."
+      },
+      {
+        "speaker": "Narrador",
+        "text": "Consejo: defenderte y concentrarte también forman parte del combate."
+      }
+    ],
+    "between": [
+      {
+        "speaker": "Narrador",
+        "text": "Recuperas el aliento: te curas el 80% de tu vida y recargas todo el chakra. El siguiente rival ya espera."
+      }
+    ],
+    "victory": [
+      {
+        "speaker": "Narrador",
+        "text": "¡El último rival cae! El público estalla en vítores."
+      },
+      {
+        "speaker": "Narrador",
+        "text": "Eres el campeón del torneo. Tu nombre será recordado en todas las aldeas."
+      }
+    ],
+    "defeat": [
+      {
+        "speaker": "Narrador",
+        "text": "Tus fuerzas se agotan y caes al suelo."
+      },
+      {
+        "speaker": "Narrador",
+        "text": "El torneo termina para ti, pero todo shinobi se levanta más fuerte. ¡Inténtalo de nuevo!"
+      }
+    ]
+  }
+}
