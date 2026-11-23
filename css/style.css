@@ -63,3 +63,5 @@ button{font:inherit;color:inherit;cursor:pointer}
 #player-info{bottom:16px;right:16px}
 .bottom{display:grid;grid-template-columns:1fr 1.5fr;gap:8px;width:100%}
 @media(max-width:700px){.arena{height:420px}.sprite,.sprite .portrait{width:110px;height:110px;font-size:3rem}#enemy-panel{right:20px;top:110px}#player-panel{left:20px;bottom:90px}.info{width:200px}.bottom{grid-template-columns:1fr}}
+a.primary{display:inline-block;text-decoration:none;color:inherit}
+.primary.secondary{background:transparent;border:2px solid var(--accent)}
