@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shinobi Duel</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <button id="btn-mute" title="Silenciar">🔊</button>
   <main id="game">
@@ -40,8 +42,12 @@
           <div class="bar chakra"><i id="enemy-chakra"></i></div><small id="enemy-chakra-text"></small>
           <div class="status" id="enemy-status"></div>
         </div>
-        <div class="sprite" id="enemy-panel"><div class="portrait" id="enemy-portrait"></div></div>
-        <div class="sprite" id="player-panel"><div class="portrait" id="player-portrait"></div></div>
+        <div class="sprite" id="enemy-panel">
+          <div class="portrait" id="enemy-portrait"></div>
+        </div>
+        <div class="sprite" id="player-panel">
+          <div class="portrait" id="player-portrait"></div>
+        </div>
         <div class="info" id="player-info">
           <h3 id="player-name"></h3>
           <div class="bar hp"><i id="player-hp"></i></div><small id="player-hp-text"></small>
@@ -62,4 +68,5 @@
   </main>
   <script type="module" src="scripts/app.js"></script>
 </body>
+
 </html>
