@@ -72,7 +72,7 @@ export class BattleSystem {
 
     target.takeDamage(damage);
     if (actor === this.player) this.damageDealt += damage;
-    this.log(events, 'damage', target, { amount: damage, crit });
+    this.log(events, 'damage', target, { amount: damage, crit, skill });
 
     const fx = skill.effect;
     if (!fx || !target.alive) return;

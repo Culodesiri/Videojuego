@@ -2,6 +2,7 @@
 export class UIManager {
   constructor() {
     this.screens = document.querySelectorAll('.screen');
+    this.defaultFx = { buff: '✨', guard: '🛡️', focus: '💠' };
     document.addEventListener('keydown', (e) => {
       document.querySelectorAll('#skills .skill')[Number(e.key) - 1]?.click();
     });
@@ -16,9 +17,10 @@ export class UIManager {
   renderRoster(characters, onPick) {
     const holder = this.$('roster');
     holder.innerHTML = '';
-    characters.forEach((c) => {
+    characters.forEach((c, index) => {
       const card = document.createElement('button');
       card.className = 'card';
+      card.style.setProperty('--i', index);
       card.innerHTML = `<div class="portrait"></div><h3>${c.name}</h3>
         <p>Vida ${c.stats.hp} · Ataque ${c.stats.attack}<br>Defensa ${c.stats.defense} · Velocidad ${c.stats.speed}</p>`;
       this.renderPortrait(card.querySelector('.portrait'), c);
@@ -46,9 +48,10 @@ export class UIManager {
     const entries = [{ character: player, state: 'player' }, ...opponents.map((character, i) => ({
       character, state: i < current ? 'done' : i === current ? 'current' : 'pending'
     }))];
-    entries.forEach(({ character, state }) => {
+    entries.forEach(({ character, state }, index) => {
       const node = document.createElement('div');
       node.className = `node ${state}`;
+      node.style.setProperty('--i', index);
       node.innerHTML = `<div class="portrait"></div><strong>${character.name}</strong><small>${labels[state]}</small>`;
       this.renderPortrait(node.querySelector('.portrait'), character);
       holder.appendChild(node);
@@ -63,10 +66,12 @@ export class UIManager {
   setupBattle(player, enemy, index, total) {
     this.$('fight-label').textContent = `Combate ${index + 1} de ${total}`;
     this.$('log').innerHTML = '';
+    this.showBanner(`¡Combate ${index + 1}!`);
     [['player', player], ['enemy', enemy]].forEach(([side, fighter]) => {
       this.$(`${side}-name`).textContent = fighter.name;
       this.renderPortrait(this.$(`${side}-portrait`), fighter);
       this.$(`${side}-panel`).classList.remove('faint');
+      this.flash(this.$(`${side}-panel`), 'enter', 900);
     });
   }
 
@@ -74,6 +79,7 @@ export class UIManager {
     for (const side of ['player', 'enemy']) {
       const s = state[side];
       this.$(`${side}-panel`).classList.toggle('faint', s.hp === 0);
+      this.$(`${side}-hp`).classList.toggle('low', s.hp > 0 && s.hp / s.maxHp < 0.25);
       this.$(`${side}-hp`).style.width = `${(100 * s.hp) / s.maxHp}%`;
       this.$(`${side}-hp-text`).textContent = `Vida ${s.hp} / ${s.maxHp}`;
       this.$(`${side}-chakra`).style.width = `${(100 * s.chakra) / s.maxChakra}%`;
@@ -108,13 +114,76 @@ export class UIManager {
   }
 
   animate(event, audio) {
-    const panel = this.$(`${event.side}-panel`);
-    const flash = (cls) => { panel.classList.add(cls); setTimeout(() => panel.classList.remove(cls), 400); };
-    if (event.type === 'use' && event.skill.type === 'damage') flash('attack');
-    if (event.type === 'damage') { flash('hit'); this.floatText(panel, `-${event.amount}${event.crit ? '!' : ''}`, 'dmg'); audio.play(event.crit ? 'crit' : 'hit'); }
-    if (event.type === 'miss') { this.floatText(panel, 'Esquiva', 'miss'); audio.play('miss'); }
-    if (event.type === 'heal') { this.floatText(panel, `+${event.amount}`, 'heal'); audio.play('heal'); }
-    if (event.type === 'burn' || event.type === 'recoil') this.floatText(panel, `-${event.amount}`, 'dmg');
+    const sprite = this.$(`${event.side}-panel`);
+    const skillFx = event.skill?.fx;
+    switch (event.type) {
+      case 'use':
+        if (event.skill.type === 'damage') this.flash(sprite, 'attack');
+        else if (event.skill.type !== 'heal') this.showFx(sprite, skillFx || this.defaultFx[event.skill.type]);
+        break;
+      case 'damage':
+        this.flash(sprite, 'hit');
+        this.showFx(sprite, skillFx || '💥');
+        this.floatText(sprite, `-${event.amount}${event.crit ? '!' : ''}`, 'dmg');
+        if (event.crit) {
+          this.flash(this.$('arena'), 'shake');
+          this.floatText(sprite, '¡CRÍTICO!', 'crit');
+        }
+        audio.play(event.crit ? 'crit' : 'hit');
+        break;
+      case 'miss':
+        this.flash(sprite, 'dodge');
+        this.floatText(sprite, 'Esquiva', 'miss');
+        audio.play('miss');
+        break;
+      case 'heal':
+        this.showFx(sprite, '💚');
+        this.floatText(sprite, `+${event.amount}`, 'heal');
+        audio.play('heal');
+        break;
+      case 'status':
+        this.showFx(sprite, event.status === 'stun' ? '💫' : '🔥');
+        break;
+      case 'stunned':
+        this.showFx(sprite, '💤');
+        this.floatText(sprite, 'Aturdido', 'miss');
+        break;
+      case 'burn':
+        this.showFx(sprite, '🔥');
+        this.floatText(sprite, `-${event.amount}`, 'dmg');
+        break;
+      case 'recoil':
+        this.floatText(sprite, `-${event.amount}`, 'dmg');
+        break;
+    }
+  }
+
+  // Adds a CSS class for a short time, restarting the animation if it was already running.
+  flash(element, className, duration = 400) {
+    element.classList.remove(className);
+    void element.offsetWidth;
+    element.classList.add(className);
+    setTimeout(() => element.classList.remove(className), duration);
+  }
+
+  showFx(sprite, emoji) {
+    const effect = document.createElement('span');
+    effect.className = 'fx';
+    effect.textContent = emoji;
+    sprite.appendChild(effect);
+    setTimeout(() => effect.remove(), 700);
+  }
+
+  showBanner(text) {
+    const banner = this.$('banner');
+    banner.textContent = text;
+    this.flash(banner, 'show', 1600);
+  }
+
+  async celebrate(winner) {
+    this.flash(this.$(`${winner}-panel`), 'victory', 1300);
+    this.showBanner(winner === 'player' ? '¡Victoria!' : 'Derrota');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
   }
 
   floatText(panel, text, cls) {

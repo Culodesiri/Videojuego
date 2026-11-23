@@ -31,7 +31,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.25
-      }
+      },
+      "fx": "🌀"
     },
     "rasenshuriken": {
       "name": "Rasenshuriken",
@@ -39,7 +40,8 @@
       "type": "damage",
       "power": 48,
       "cost": 50,
-      "acc": 75
+      "acc": 75,
+      "fx": "🌪️"
     },
     "sage": {
       "name": "Modo Sabio",
@@ -51,7 +53,8 @@
         "stat": "attack",
         "amount": 0.3,
         "turns": 4
-      }
+      },
+      "fx": "🐸"
     },
     "katana": {
       "name": "Tajo de katana",
@@ -71,7 +74,8 @@
         "kind": "burn",
         "turns": 3,
         "damage": 14
-      }
+      },
+      "fx": "🔥"
     },
     "chidori": {
       "name": "Chidori",
@@ -83,7 +87,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.3
-      }
+      },
+      "fx": "⚡"
     },
     "sharingan": {
       "name": "Sharingan",
@@ -95,7 +100,8 @@
         "stat": "defense",
         "amount": 0.35,
         "turns": 4
-      }
+      },
+      "fx": "👁️"
     },
     "kick": {
       "name": "Patada rápida",
@@ -110,7 +116,8 @@
       "type": "damage",
       "power": 26,
       "cost": 18,
-      "acc": 90
+      "acc": 90,
+      "fx": "💨"
     },
     "lotus": {
       "name": "Loto Primario",
@@ -119,7 +126,8 @@
       "power": 42,
       "cost": 35,
       "acc": 78,
-      "selfDamage": 12
+      "selfDamage": 12,
+      "fx": "🌸"
     },
     "gate": {
       "name": "Puerta de la Apertura",
@@ -132,7 +140,8 @@
         "stat": "attack",
         "amount": 0.4,
         "turns": 4
-      }
+      },
+      "fx": "💪"
     },
     "sandfist": {
       "name": "Puño de arena",
@@ -151,7 +160,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.3
-      }
+      },
+      "fx": "🏜️"
     },
     "sandfuneral": {
       "name": "Funeral del desierto",
@@ -159,7 +169,8 @@
       "type": "damage",
       "power": 46,
       "cost": 50,
-      "acc": 78
+      "acc": 78,
+      "fx": "🏜️"
     },
     "sandarmor": {
       "name": "Regeneración de arena",
@@ -181,7 +192,8 @@
       "type": "damage",
       "power": 26,
       "cost": 20,
-      "acc": 92
+      "acc": 92,
+      "fx": "🌊"
     },
     "raikiri": {
       "name": "Raikiri",
@@ -193,7 +205,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.35
-      }
+      },
+      "fx": "⚡"
     },
     "copy": {
       "name": "Técnica copiada",
@@ -205,7 +218,8 @@
         "stat": "attack",
         "amount": 0.25,
         "turns": 4
-      }
+      },
+      "fx": "👁️"
     },
     "shuriken": {
       "name": "Lluvia de shuriken",
@@ -225,7 +239,8 @@
         "kind": "burn",
         "turns": 3,
         "damage": 16
-      }
+      },
+      "fx": "🔥"
     },
     "tsukuyomi": {
       "name": "Tsukuyomi",
@@ -237,7 +252,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.5
-      }
+      },
+      "fx": "🌙"
     },
     "susanoo": {
       "name": "Susanoo",
@@ -249,7 +265,8 @@
         "stat": "defense",
         "amount": 0.4,
         "turns": 4
-      }
+      },
+      "fx": "🛡️"
     },
     "toadpunch": {
       "name": "Puñetazo de sapo",
@@ -269,7 +286,8 @@
         "kind": "burn",
         "turns": 3,
         "damage": 12
-      }
+      },
+      "fx": "🔥"
     },
     "bigball": {
       "name": "Rasengan gigante",
@@ -281,7 +299,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.3
-      }
+      },
+      "fx": "🌀"
     },
     "needlehair": {
       "name": "Armadura de pelo",
@@ -293,7 +312,8 @@
         "stat": "defense",
         "amount": 0.35,
         "turns": 4
-      }
+      },
+      "fx": "🛡️"
     },
     "punch": {
       "name": "Puñetazo",
@@ -312,7 +332,8 @@
       "effect": {
         "kind": "stun",
         "chance": 0.2
-      }
+      },
+      "fx": "💢"
     },
     "seismic": {
       "name": "Golpe sísmico",
@@ -320,7 +341,8 @@
       "type": "damage",
       "power": 40,
       "cost": 32,
-      "acc": 80
+      "acc": 80,
+      "fx": "💥"
     },
     "mystic": {
       "name": "Jutsu de curación",

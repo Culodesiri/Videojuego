@@ -93,8 +93,12 @@ export class Game {
     const { events, winner } = this.battle.executeRound(skill);
     await this.ui.playEvents(events, this.audio);
     this.busy = false;
-    if (winner) this.endFight(winner);
-    else this.refreshSkills();
+    if (winner) {
+      await this.ui.celebrate(winner);
+      this.endFight(winner);
+    } else {
+      this.refreshSkills();
+    }
   }
 
   endFight(winner) {

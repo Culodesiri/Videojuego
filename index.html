@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shinobi Duel</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <button id="btn-mute" title="Silenciar">🔊</button>
   <main id="game">
@@ -35,25 +33,22 @@
     </section>
     <section id="screen-battle" class="screen">
       <h2 id="fight-label"></h2>
-      <div class="arena">
+      <div class="arena" id="arena">
         <div class="info" id="enemy-info">
           <h3 id="enemy-name"></h3>
           <div class="bar hp"><i id="enemy-hp"></i></div><small id="enemy-hp-text"></small>
           <div class="bar chakra"><i id="enemy-chakra"></i></div><small id="enemy-chakra-text"></small>
           <div class="status" id="enemy-status"></div>
         </div>
-        <div class="sprite" id="enemy-panel">
-          <div class="portrait" id="enemy-portrait"></div>
-        </div>
-        <div class="sprite" id="player-panel">
-          <div class="portrait" id="player-portrait"></div>
-        </div>
+        <div class="sprite" id="enemy-panel"><div class="portrait" id="enemy-portrait"></div></div>
+        <div class="sprite" id="player-panel"><div class="portrait" id="player-portrait"></div></div>
         <div class="info" id="player-info">
           <h3 id="player-name"></h3>
           <div class="bar hp"><i id="player-hp"></i></div><small id="player-hp-text"></small>
           <div class="bar chakra"><i id="player-chakra"></i></div><small id="player-chakra-text"></small>
           <div class="status" id="player-status"></div>
         </div>
+        <div class="banner" id="banner"></div>
       </div>
       <div class="bottom">
         <div id="log"></div>
@@ -68,5 +63,4 @@
   </main>
   <script type="module" src="scripts/app.js"></script>
 </body>
-
 </html>
